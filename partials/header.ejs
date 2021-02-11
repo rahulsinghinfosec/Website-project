@@ -1,0 +1,37 @@
+  <nav class="navbar navbar-expand-lg bg-secondary " id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">cyberSec</a>          
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            MENU
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown mx-0 mx-lg-1">
+                    <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        LEARN
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                        <a class="dropdown-item " href="/security">Security</a>
+                        <a class="dropdown-item" href="/network" >Computer Networks</a>
+                        <a class="dropdown-item"  href="/reverseEngineering">Reverse Engineering</a>
+                        <a class="dropdown-item" href="/attacks">Web Application Attacks</a>
+                        <a class="dropdown-item"  href="/linux">Linux</a>
+                        <a class="dropdown-item" href="/windows">Windows</a>
+                        <a class="dropdown-item" href="/google-dorks">Google Dorks</a>
+                        <a class="dropdown-item" href="/cryptography">Cryptography</a>
+                    </div>
+                    </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/infosecblog">BLOG</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/about-me">ABOUT ME</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contact-me">CONTACT ME</a></li>
+                <% if(!currentUser) { %>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signin">SIGN IN</a></li>
+                <% } else { %>}
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">LOGOUT</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

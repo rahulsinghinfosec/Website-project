@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Learn About Cyber Security, Network+, Security+. Take your learning experience to a whole new level.">
+        <title>Home</title>    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
+        <script src="https://fonts.googleapis.com/css?family=Fira+Mono:400"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .card{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            .card img{
+                height: 232px;
+            }
+            .card:hover{
+                color:#007bff;
+                box-shadow: 2px 5px 5px #6cb0f9e3;
+            }
+            .card a:hover{
+                color: #007bff;
+                box-shadow: 2px 5px 5px#6cb0f9e3;
+            }
+            marquee{
+                background-color: #a3e142;
+                padding-top:7px;
+                padding-bottom: 7px;
+                position:absolute;
+            }
+            .header{
+                margin-top: 0;
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                height: 25em;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <marquee behavior="scroll" direction="left">
+            Learn the concepts of Networking,Cybersecurity, various web attacks,their preventive measures,Linux, Windows, and much more.
+        </marquee>
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <h1 class="masthead-heading mb-0">cyberSec.com</h1>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                </div>
+                <p class="masthead-subheading font-weight-light mb-0">Learn about Cybersecurity, Linux,Networking and a lot more!!</p>
+            </div>
+        </header>
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Topics</h2>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <% for(let file of files){ %>
+                        <div class="col-sm-6 col-md-4">
+                        <div class="card">
+                            <img class="card-img-top" src="<%= file.image %>" alt="Card image cap">
+                            <div class="card-body">
+                                <details class="card-title">
+                                    <summary><%= file.name %></summary>
+                                    <p><%= file.desc%></p> 
+                                </details>
+                              <a href="/<%= file.links %>"><button class="btn btn-outline-primary">Read</button></a>
+                            </div>
+                          </div>
+                        </div>
+                    <%} %>
+                </div>
+            </div>
+        </section>
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                </div>
+   
+                <div class="row">
+                    <div class="col-lg-4 ml-auto"><p class="lead">cyberSec brings you all the learning materials in one place.</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">Learn Anytime, anywhere. No need to signup/register and no spams emails in your mailbox</p></div>
+                </div>
+                
+        </section>
+
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/people/Rahul-Singh/100030284021507"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/RahulSi49800270"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/rahul-singh-b76349173/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/_rahul_singh_chauhan._/" title="Instagram"><i class="fab fa-fw fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/rahulsinghinfosec/" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fab fa-github"></i></a>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <h4 class="mb-4">About cyberSec</h4>
+                        <p class="lead mb-0">
+                            cyberSec.com is an execllent resource for beginners looking for guidance into Comptia Security+,Network+,Cybersecurity & Ethical Hacking.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright © cyberSec 2021</small></div>
+        </div>     
+    </body>
+</html> 

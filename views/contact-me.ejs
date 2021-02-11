@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact-Me</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       <style>
+        form
+        {
+            margin-top:5%
+        }
+    </style>
+    </head>
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <div class="container">
+            <form method="POST">
+                <div class="form-group">
+                  <label for="user_name">Name</label>
+                  <input type="text" class="form-control" id="user_name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="user_email">Email</label>
+                  <input type="email" class="form-control" id="user_email" placeholder="abc@xyz.com">
+                </div>
+                <div class="form-group">
+                  <label for="user_message">Message</label>
+                  <textarea class="form-control" id="user_message" rows="3"></textarea>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </body>
+</html>

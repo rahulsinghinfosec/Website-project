@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Google Dorks</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            header
+            {
+                margin-top:1rem;
+                margin-bottom: 0.75rem;
+            }
+            details
+            {
+                margin-top:10px;
+                padding-left: 9px;
+                padding-top:5px;
+                padding-bottom:5px;
+                background-color: #a3e142;
+                margin-bottom:10px;
+                border-radius: 5px;
+            }
+            code
+            {
+                background-color: lightgray;
+                padding:2px 5px 2px 5px;
+                border-radius: 10px;
+            }
+            .keywords
+            {
+                display: flex;
+                margin: 20px auto 10px auto;
+                border-radius: 10px;
+            }
+            img
+            {
+                display: flex;
+                border-radius: 10px;
+                margin:20px auto 3rem auto;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <header class="container">
+            <h3>Google Dorks: Search Effictively</h3>
+            <img src="https://cdn.pixabay.com/photo/2016/09/22/10/43/eye-1686932_960_720.jpg" alt="main Image" class="img-fluid">
+                <p><span class="text-muted">Let's not fool ourselves. You and I both know that no matter how specifically we type our search query there will be results that we'll never need and yet they'll be the ones floating on the top of our search results.
+                    <br>
+                    Lets call it our bad luck that we didn't get the results we searched for and now that project lying somewhere just reminds us about the missing piece.
+                </span></p>
+                <h5>Well no more of that. Lets learn to use google more efficiently.
+                    <br>
+                    <strong>Lets learn to HACK Google!!!</strong>
+                </h5>
+
+        </header>
+        <header class="container">
+            <details>
+                <summary>site</summary>
+                    <p>Site lets you limit your search results to only a particular domain.</p>
+                    <code>site:xyz.com</code>
+                    <p>Use -&lt;keyword&gt; to remove results that have the "keyword" in the url.</p>
+                    <code>site:xyz.com -www</code>
+                    <br>
+                    <img src="../images/site.png" alt="site" class="keywords img-thumbnail" >
+            </details> 
+            <details>
+                <summary>filetype</summary>
+                <p>This lets you search for a particular filetype, like csv,doc,docx,pdf,txt,etc</p>
+                <code>forbes filetype:pptx</code>
+                <p>One can use it with site to narrow down the results</p>
+                <code>site:forbes.com filetype:pptx</code>
+                <br>
+                <img src="../images/filetype.png" alt="filtetype" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>inline</summary>
+                <p>This returns the pages that have the term that you specify.</p>
+                <code>site:xyz.com inline:free code</code>
+                <br>
+                <img src="../images/inline.png" alt="inline" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>inurl</summary>
+                <p>Use of inrul will result in only those pages that have the query(that you specified) in their urls.</p>
+                <code>inurl:login.php</code>
+                <p>One can use it with site to narrow down the search resutls.</p>
+                <code>site:xyz.com</code>
+                <br>
+                <img src="../images/inurl.png" alt="inurl" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>cache</summary>
+                <p>This returns the cached version of the site.</p>
+                <code>cache:xyz.com</code>
+                <br>
+                <img src="../images/cache.png" alt="cahce" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>intext</summary>
+                <p>This is similar to a simple google search.</p>
+                <code>site:xyz..com intext:password</code>
+                <br>
+                <img src="../images/intext.png" alt="intext" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>info</summary>
+                <p>This will show some information regarding the query that you specify</p>
+                <code>info:leftist</code>
+                <br>
+                <img src="../images/info.png" alt="info" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>link</summary>
+                <p>This will show all the pages that point to the query that you specify.</p>
+                <p>Results will be that pages that have link to xyz.com</p>
+                <code>link:xyz.com</code>
+                <br>
+                <img src="../images/link.png" alt="link" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>movie</summary>
+                <p>This will show the movie-related information.</p>
+                <code>movie:Harry Potter and the half blood prince</code>
+                <br>
+                <img src="../images/movie.png" alt="movie" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>weather</summary>
+                <p>This will result in forcast for the location that you specified, if that location is recognized by google.</p>
+                <code>weather:New York</code>
+                <br>
+                <img src="../images/weather.png" alt="weather" class="keywords img-thumbnail">
+            </details>
+            <details>
+                <summary>*</summary>
+                <p>This is a wildcard. Specifying this in your search query could mean anything.</p>
+                <code>I have a * dog</code>
+                <p>This could mean : I have a small/big/fat/cute/sturdy,etc dog</p>
+                <br>
+                <img src="../images/astrisk.png" alt="astrisk" class="keywords img-thumbnail">
+            </details>
+        </header>
+    </body>
+</html>

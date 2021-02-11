@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Physical Topologies</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header class="container">
+            <h1>Physical Network Topologies</h1>
+        </header>
+        <div class="container">
+            <h3>What is a Topology?</h3>
+            <p>Topology refers to the arrangement of nodes or elements in an environmen.
+            <br>
+            <span style="color:cornflowerblue">For Example: Network Topology refers to the arrangement of network nodes(eg clients) in a networking environment.</span>
+            </p>
+            <h3>What is a Physical Network Topology?</h3>
+            <p>A Physical Network Topology is a Topology which defines or tells us how the clients are actually connected in a physical terrain and also tells their arrangement, including all the physical media (eg cables)</p>
+            <p>Depending upon your requirements, you can have one of the following topologies.</p>
+            <ul>
+                <li style="color: crimson;">Bus Topology</li>
+                <li style="color: darkviolet;">Star Topology</li>
+                <li style="color: deeppink;">Ring Topology</li>
+                <li style="color: dodgerblue;">Mesh Topology</li>
+                <li style="color: firebrick;">Hybrid</li>
+                <li style="color: fuchsia;">Point-to-Point</li>
+                <li style="color: indianred;">Point-to-Multipoint</li>
+            </ul>
+        </div>
+        <div id="bus-topology" class="container">
+            <h3>Bus Topology</h3>
+            <p>This type of topology is the most basic one of all the topologies, and it really does sort of resemble a bus. <br>
+            It consists of 2 distinct terminals, and all the computers are connected to a single cable, throughout its length.</p>
+            <!-- Enter image here -->
+            <p>If computer A wants to send data to computer D then all the computers in the between can see that data transfer is occuring between the two computers.</p>
+            <p>Advantages:</p>
+            <ul>    
+                <li>Easy to install.</li>
+                <li>Not expensive</li>
+            </ul>
+            <p>Disadvantages:</p>
+            <ul>
+                <li>Hard to Troubleshoot,move or change.</li>
+                <li>Poor Fault Tolerance</li>
+                <li>Any falut in cable can bring the entire network down.</li>
+            </ul>
+        </div>
+        <div class="container" id="star-topology">
+            <h3>Star Topology</h3>
+            <p>As the name suggests,this appears like a <strong>star</strong>, with a central point(it could be a switch or a hub) to which all the devices are connected to.Unlike a bus topology, all the computers are connected to the main central point using their own respective wires.</p>
+            <!-- Enter image here -->
+            <p>Star topology offers a lot of advantages over bus topology, making it more widely used even though it obviously requires more physical media. One of its best features is that
+                because each computer or network segment is connected to the central device individually, if the cable fails, it only brings down the machine or network segment related to the point of failure </p>
+        <p>Advantages</p>
+        <ul>
+            <li>Good Fault Tolerance</li>
+            <li>Easy to Troubleshoot</li>
+            <li>Addition and moving devices is easy.</li>
+            <li>A fault in a single cable won't bring the entire network down.</li>
+        </ul>
+        <p>Disadvantages</p>
+        <ul>
+            <li>More expensive than Bus Topology</li>
+            <li>It has a sigle point of failure (i.e switch or hub) that could bring the entire network down.</li>
+        </ul>
+            <p style="color: lightcoral;">Now if a one switch/hub is connected to another switch/hub then this is an example of <em>point-to-point</em> link through the star topology.</p>
+        </div>
+        <div class="container" id="ring-topology">
+            <h3>Ring Topology</h3>
+            <p>In this topology, each computer is directly connected to other computers,in a circular fashion,within the same network. The network’s data flows from computer to computer back to the source, with the network’s primary cable forming a ring.Adding a new device to the network can be tedios as the path has to be broken, which can result in bringing down the entire network.<p>
+                <!-- enter image here -->
+            <p>Advantages</p>
+            <ul>
+                <li>Not much expensive.</li>
+            </ul>
+            <p>Disadvantages</p>
+            <ul>
+                <li>Hard To Troubleshoot</li>
+                <li>Poor Fault Tolerance</li>
+                <li>Adding or removing a new device can bring the entire network down.</li>
+            </ul>
+        </div>
+        <div class="container" id="mesh-topology">
+            <h3>Mesh Topology</h3>
+            <p>This type of topology has the most number of physical connections, because there exists a connection betweeen any two devices in the network.</p>
+            <!-- enter image here -->
+            <p>To find the total number of connects needed in a mesh network, the formula is <sup>n(n-1)</sup>&frasl;<sub>2</sub>, where n is the total number of computers in the network.    
+            <br>For example, if the total number of computers are 4, then the connections needed would be <sup>4(3)</sup>&frasl;<sub>2</sub> = 6</p>
+            <p>As there is a physical connection between any 2 devices, this type of topology is the most fault-tolerant, but more this adds to its cost, so this type of topology you won't find in most LANs.
+                <br>People prefer <em>Hybrid Mesh</em> or <em>Partial Mesh</em> topology to prevent extra overhead charges and at the same time enjoy some of the features of a hybrid topology.
+            </p>
+            <p>Advantages.</p>
+            <ul>
+                <li>Best Fault Tolerance</li>
+                <li>Less number of collisions and faster speeds.</li>
+            </ul>
+            <p>Disadvantages</p>
+            <ul>
+                <li>Very Expensive.</li>
+                <li>Too many wires and configurations to deal with.</li>
+            </ul>
+        </div>
+        <div class="container" id="point-to-point">
+            <h3>Point-to-Point</h3>
+            <p>As its name implies, in a point-to-point topology you have a direct connection between two routers or switches, giving you one communication path.It could also be between 2 computers,one computer and a router/switch.
+                <br>You’ll usually find point-to-point networks within many of today’s WANs.
+            </p>
+            <!-- enter image here -->
+        </div>
+        <div class="container" id="point-to-multipoint">
+            <h3>Point-to-Multipoint</h3>
+            <p>Point-to-multipoint topology consists of a succession of connections between an interface on one router and multiple destination routers—one point of connection to multiple points of connection.</p>
+            <p>Generally used in corporate networks where there is one main branch and other subsidiary branches connected to it.</p>
+            <!-- enter image here -->
+        </div>
+        <div class="container" id="hybrid-topology">
+            <h3>Hybrid Topology</h3>
+            <p>This type of topology involves combination of more than one topology in your network. You could use this to cut down cost and even to make use of some of the pros of other topologies in your network.</p>
+            <!-- enter image here -->
+        </div>
+    </body>
+</html>

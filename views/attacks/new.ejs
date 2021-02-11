@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add a new page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            form
+            {
+                margin-top:1rem;
+                margin-bottom:1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../../partials/header.ejs") %>
+        <div class="container">
+            <form action="/attacks" method="post">
+                <div class="form-group">
+                    <label for="image">Image Url</label>
+                    <input type="text" id="image" class="form-control" placeholder="Enter Url" name="image" required> 
+                    
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter Title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea name="desc" id="desc" cols="40" rows="10" class="form-control" placeholder="Description Of the title" required></textarea> 
+                </div>
+                <div class="form-group">
+                    <label for="mainbody">Body</label>
+                    <textarea name="mainbody" id="mainbody" cols="40" rows="20" class="form-control" placeholder="Main Content" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       <style>
+            .definition
+            {
+                padding: 5px 4px 4px 10px;
+                margin-top:5px;
+                background-color: #a3e142;
+                border-radius: 10px;
+            }
+            .body
+            {
+                padding: 5px 2px 4px 10px;
+                margin-top:5px;
+                background-color: #a3e142;
+                border-radius: 10px;
+            }
+            details
+            {
+                background-color: #a3e142;
+                margin-bottom: 7px;
+                padding: 5px 0px 5px 5px;
+                border-radius: 10px;
+            }
+            table,th,td
+            {
+                
+                border:1px solid black;
+            }
+            .center
+            {
+                text-align: center;
+                margin:20px auto 20px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <header class="container">   
+            <h1 class="display-4">Definition</h1>
+            <div class="definition">
+                <p>Cryptography is the practice of converting plaintext data into something that is ununderstandable.</p>
+                <p>This is done so that the entities that may be eavesdropping on us cannot understand, or make sense out of our converstion with the actual entity (that it was meant for).</p>
+                <p>This might not be an trigger an alarm in your head at first, but what if you are doing a bank transaction and the webpage asks for your credentials to verify your identity. Simple packet sniffer installed on your network or computer could gather
+                    your credentials and send them to the attacker and what he wishes to do with those credentials is his own concern.
+                </p>
+            </div>
+        </header>
+        <div class="container">
+            <h2 class="display-5 " style="margin-top: 1rem;">Overview</h2>
+            <div class="body">
+                <p>Suppose you want to send a secret message to your colleague. It could be a password,id,etc. 
+                   To make sure that even if you someone intercepts that message in between and reads it, he cannot make sense out of it.
+                </p>
+                <p>So what do you do?
+                <br>
+                You design an algorithm and pass that secret message to that algorithm as an input. You pass in a secret Key which only you and your colleague knows of.
+                <br>
+                The algorithm does some computation on the message and produes some gibberish, which you send to your colleague.</p>
+                <p>Now your colleague can pass the same gibberish to the same algorithm along with the secret Key, to produce the secret message.</p>
+                <p>This is the concept on which Cryptography works on.</p>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="display-5" style="margin-top: 1rem;">Terms related to Cryptography</h2>
+            <details>
+                <summary>Plaintext</summary>
+                <p>This is the message that you want to encrypt before you store or send it.</p>
+                <p>For example, the plaintext that I want to encrypt is :<strong>This is a secret message</strong></p>
+                
+            </details>
+            <details>
+                <summary>Ciphertext</summary>
+                <p>This is the encrypted message that you get after passing the plaintext through an algorithm.</p>
+                <p>The cipher text for this plaintext is, <strong>Llkj ml s wgtvxl qgjwtyi</strong>
+                <br>
+                The key for this ciphertext is <u>secret</u></p>
+            </details> 
+            <details>
+                <summary>Cipher</summary>
+                <p>Cipher is another name for the algorithm that you use to encrypt your plaintext.</p>
+                <p>Some old yet commonly used in CTF challenges are : <strong>ROT13,ROT47,Vigenere Ciher, Ceaser Cipher,etc</strong></p>
+            </details>
+            <details>
+                <summary>Encryption</summary>
+                <p>It is the process of converting plaintext to ciphertext with the help of a cipher.</p>
+                <p>Example : The process of conversion of <strong>This is a secret message</strong> To <strong>Llkj ml s wgtvxl qgjwtyi</strong> is called encryption.</p>
+            </details>
+            <details>
+                <summary>Key</summary>
+                <p>Remember the key we talked about in the overview section?</p>
+                <p>Keys are an important ingredient in Cryptography. Like only a key can open a lock, a key can decrypt (opposite of encrypt) a ciphertext.</p>
+                <p>For Example, only decrypting <strong>Llkj ml s wgtvxl qgjwtyi</strong> with <strong>secret </strong> as the key can produce the original plaintext.
+                <br>
+                 Using anything but <strong>secret</strong> will result in gibberish. </p>
+                 <p>For Example, I used <strong>sec</strong> to decrypt the <abbr title="Llkj ml s wgtvxl qgjwtyi">cipher text</abbr>. This produced <strong>Dpmb qn k ailzzd uibavqm</strong>, which clearly isn't the actual plain text.</p>
+            </details>
+            <details>
+                <summary>Asymmetric Encryption</summary>
+                <p>Now that we are aware of the fact that a key is associated with an encrypt message(ciphertext).</p>
+                <p>Now if the key used to produce a ciphertext (during encryption) is DIFFERENT from that of the one used to decrypt the ciphertext, then the encryption is said to be Asymmetric Encryption.</p>
+                <p>The key used to encrypt is called a public key while the one used to decrypt is called private key.
+                <br>
+                As we shall learn later that this produces more security that a Symmetric one, this is slower than the Symmetric one.
+                </p>
+                <p>Some ciphers that implement Asymmetric Encryption are RSA,DSS,Elliptic-curve cryptography,etc.
+                    <br>
+                Also the key lengths of these ciphers is quite large (like 2048 bits, 4096 bits)
+                </p>
+            </details>
+            <details>
+                <summary>Symmetric Encrytion.</summary>
+                <p>If the key used to encrypt and decrypt is same, then the encryption is said to be Symmetric encryption.
+                <br>
+                Though this type of encryption scheme is fast but they aren't as secure as Asymmetric ones.
+                </p>
+                <p>Some ciphers that implement Symmetric Encryption are DES, AES,etc
+                    <br>
+                Their key lengths are normally 128 bits , 256 bits.
+                </p>
+            </details>
+        </div>
+        <div class="container" style="padding-top: 1rem;">
+            <h2 class="display-5" id="encoding">What is Encoding?</h2>
+            <div class="definition">
+                <p>Encoding refers to transforming data into some other format, so that it can be safely transferred and interpretted by the receiving machine.
+                <br>
+                This could be conversion of human readable data into <abbr title="ones and zeors">binary</abbr> for storage purposes, or into a different format so that can be transmitted over the <abbr title="URL Encoding">internet</abbr>,etc    
+                </p>
+                <p>Encoding is also used in Cyber Security, though its utilty is often questioned.As there is no use of a key involved,it can be easily decoded which makes its application insecure.</p>
+                <p>Some of the encoding schemes applied are : <strong>URL encoding, Base32, Base58, Base64 encoding,Morse Code, etc.</strong></p>
+                
+                </p>
+                    <hr>
+                    <div id="base64">
+                        <h4>What is Base64 encoding scheme?</h4>
+                        <p>Base64 encoding allows any binary data to be safely represented using only printable ASCII characters. 
+                            <br>  It is commonly used to encode e-mail attachments for safe transmission over SMTP. 
+                            <br> It is also used to encode user credentials in basic HTTP authentication
+                            <br>
+                            Base64 comprises the following character set, which comprises only printable ASCII Characters.
+                        <br>
+                        <strong>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</strong></p>
+                        <p>For example : The Base64 encoded form of <strong>This is not secure</strong> is <strong>VGhpcyBpcyBub3Qgc2VjdXJl</strong>
+                        <br>
+                        Implement Base64 encoding/decoding <a href="https://www.base64decode.org/">Here</a></p>
+                        </div>
+                        <hr>
+                    <div class="hex">
+                        <h4>What is Hex encoding?</h4>
+                        <p>In hex encoding scheme, each byte is converted to 2 digit (base16 encoding of the byte)
+                            <br>
+                            It is a simple yet effective way of representing binary data.
+                            <br>
+                            A hex encoded value begins with <strong>0x</strong>.
+                            The character set of hex digits is : <strong>0123456789abcdefABCDEF</strong>
+                            <br>
+                            For example : The hex equivalent of <strong>999</strong> is <strong>0x3E7</strong>
+                            <br>
+                            Implement hex encoding/decoding <a href="https://www.convertstring.com/EncodeDecode/HexEncode">Here</a>
+                        </p>
+                    </div>
+                    <hr>
+                    <div id="url">
+                        <h4>What is URL Encoding?</h4>
+                        <p>The URL-encoding scheme is used to encode any problematic characters within the extended ASCII character set so that they can be safely transported over HTTP
+                            <br>
+                            This is done because URLs are permitted to contain only the printable characters in the US-ASCII character set.
+                        </p>
+                        <p>Some Common characters used in URL encoding.</p>
+                        <ul>
+                            <li>%3d : =</li>
+                            <li>%25 : %</li>
+                            <li>%20 : Space</li>
+                            <li>%0a : New line</li>
+                            <li>%00 : Null byte</li>
+                        </ul>
+                       <p>URL encoded form of <strong>http://google.co.in/?hello kitty song</strong> is <strong>http://google.co.in/?hello%20kitty%20song</strong>
+                        <br>
+                        Implement URL encoding/decoding <a href="https://www.urlencoder.org/">Here</a>
+                        </p>
+
+                    </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="display-5">Difference Between Encoding and Cryprography</h2>
+            <div class="definition">
+                <table class="center">
+                    <thead>
+                        <tr>
+                            <th>Encoding</th>
+                            <th>Encryption</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Transforms <abbr title="Using a scheme">data</abbr> so that data can be easliy reverserd.</td>
+                            <td>Transforms <abbr title="Using an algorithm">data</abbr> so that only a specific individual(s) can reverse it.</td>
+                        </tr>
+                        <tr>
+                            <td>Preserves Usability of data.</td>
+                            <td>Preserves Confidentiality of data.</td>
+                        </tr>
+                        <tr>
+                            <td>No key required.</td>
+                            <td>Key required.</td>
+                        </tr>
+                        <tr>
+                            <td>Not applicable for transform sensitive data.</td>
+                            <td>Can be used to transform sensitive data.</td>
+                        </tr>
+                        <tr>
+                            <td>Example: Base32,Base64,Unicode,URL encoding, ASCII, HTML encoding,etc.</td>
+                            <td>Example: Ceaser, Vigenere ciper, RSA, DES, 3DES,etc.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+       </div>
+       <div class="container" id="hashing">
+           <h2 class="display-5">Hashing</h2>
+           <div class="definition">
+               <p>Hashing is the process of converting a <abbr title="plaintext/passphrase">key</abbr> into a value.
+                <br>
+                What makes hasing different then encoding and encryption is that it can't be reversed and there are <strong>no keys</strong> involved.
+                <br>
+                With a hashing technique, a particular hash function is invlolved which converts the given <abbr title="called key here">text</abbr> to a particular value.
+                <br>
+                <strong>It serves the purpose of verifying data integrity.</strong>
+                <br>
+                <en>For example, if data is sent through an insecure channel, the receiver can match the original hash value of the data with the hash value that was sent to ensure that the data wasn't tampered with.</en>
+                <ul>
+                    <li>There are no keys involved in hashing.</li>
+                    <li>A particluar hash function will always generate the same value for a key(as there is no concept of a key)</li>
+                    <li>Hash is one way, which means it cannot be decrypted or decoded. It can only be bruteforced.</li>
+                    <li>Multiple discrete inputs won't produce the same output.This makes it useful for data integrity.</li>
+                    <li>Passwords, in servers, are hashed (not encrypted)</li>
+                    <li><strong>Example: SHA-216, SHA-512, MD5, MD4, etc.</strong></li>
+                </ul> 
+               </p>
+               <p>For example : Let the hash function be f(x) = x mod 10
+                   <br>
+                   So entering a key = 13 shall result in a value = 3 <span class="text-muted">(10 * 1 + <strong>3</strong> = 13)</span>
+                    <br>
+                   <span class="text-muted">Note : Actual hash functions are much more complicated than this one and require significant computation power.</span> </p>
+
+           </div>
+       </div>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Reverse Engineering</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <link href="../css/styles.css" rel="stylesheet" />
+            <link href="../js/scripts.js">
+            <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+            <style>
+                header img
+                {
+                    display: flex;
+                    margin:10px auto 20px auto;
+                }
+                .commands img
+                {
+                    margin:5px auto 20px auto;
+                }
+            </style>
+        </head>
+    <body>
+        <%- include("../../partials/header.ejs") %>
+        <header class="container">
+            <h2 class="display-4">Basic Linux Commands</h2>
+            <img src="https://cdn.pixabay.com/photo/2013/07/12/16/59/linux-151619_960_720.png" alt="" srcset="" class="img-fluid" style="max-width: 100%; max-height: 500px;"> <!--Add image here -->
+            <h4><small class="text-muted">Want to be a <strong>Penetration Tester,Security Ananlyst,Security Architect,Cyber Security Manager,etc?</strong> 
+                <br>Chances are you'll be spending most of the time with a Linux-based Operating System <strong>(called Distributions)</strong>
+            <br>
+                <strong>You might argue that Can't you work on a Mac or a Windows PC?</strong>
+            <br>
+                Well you can, but what's the harm in learning a new OS? Further, most of the tools are readily available or come built in with these Linux Distributions.</small>
+            </h4>
+        </header>
+        <div class="container" style="margin-top: 2rem;">
+            <h5>So let's dive in and learn about some of the basic commands used within Linux Distributions.</h5>
+            <div class="commands" style="margin-top: 2rem;">
+                <div id="man">
+                        <h4><abbr title="man">man</abbr></h4>
+                        <p>Almost Every sophesticated device comes with a user manual.So think of man as a user manual for all the tools and commands that you have preinstalled or install over the course of time. <br>
+                        <img src="../../images/man.png" alt="man page" class="img-thumbnail"></p>
+                        <p><span class="text-muted">Usage: <strong>man [command]</strong></span>
+                            <br>
+                        Click <a href="https://www.man7.org/linux/man-pages/">here</a> to know more about man pages.</p>
+                </div>   
+                <div id="ls">  
+                    <h4><abbr title="Stands for List">ls</abbr></h4>
+                    <p>ls command diplays the contents of the current directory. <br>
+                    <img src="../../images/ls.png" alt="ls" class="img-thumbnail"> </p>
+                    <p>You can append ls with other options to increase its functionality. 
+                        <br>
+                        <span class="text-muted">For Example : You can use <strong>ls -a</strong> to show the hidden files/directories</span>
+                        <br>
+                        <span class="text-muted">Usage: <strong>ls [options] [directory]</strong></span>
+                        <br>
+                        <span class="text-muted">Type <strong>ls --help</strong> for more commands or <strong>man ls</strong> to view the man page of ls.</span>
+                    </p>
+                </div>
+                <div id="pwd">
+                    <h4><abbr title="Print Working Directory">pwd</abbr></h4>
+                    <p>pwd prints the current directory that you are in. <br>
+                    <img src="../../images/pwd.png" alt="pwd" class="img-thumbnail">  </p>
+                    <p><span class="text-muted">You may use pwd with options to increase its functionality.</span>
+                    <br>
+                    <span class="text-muted">Usage: <strong>pwd [options]</strong></span>
+                    <br>
+                    <span class="text-muted">Type <strong>pwd --help</strong> for more commands or <strong>man pwd</strong> to view its man page.</span></p> 
+                </div>
+                <div id="cd">
+                    <h4><abbr title="Change Directory">cd</abbr></h4>
+                    <p>Feeling stuck in the same directory? Wish to change the directory that you are working on?Well cd is the command for you
+                    <img src="../../images/cd1.png" alt="cd" class="img-thumbnail"></p>
+                    <p><span class="text-muted">Usage:<strong>cd [options] [directory]</strong></span></p>
+                    <p>Use .. to go one step up the heirarchy. <br>
+                    <img src="../images/cd2.png" alt="cd" class="img-thumbnail"></p>
+                    <p>Use . to stay in the same directory. <br>
+                    <img src="../../images/cd3.png" alt="cd" class="img-thumbnail">    </p>             
+                    <p>You can easily navigate to the directories present in the current directory that you are in.
+                    <img src="../../images/cd4.png" alt="cd" class="img-thumbnail"></p>
+                </div>
+                <div id="whoami">
+                    <h2><abbr title="Who am I?">whoami</abbr></h2>
+                    <p>This prints the userid of the user, that you are currently logged in as.
+                        <br>
+                        <img src="../../images/whoami.png" alt="whomai" class="img-thumbnail">
+                        <br><span class="text-muted">Usage : <strong>whoami</strong></span></p>
+                </div>
+                <div id="whatis">
+                    <h2><abbr title="What is">whatis</abbr></h2>
+                    <p>You might find yourself in situations where you might want to know what a particular command or tool does, without cluttering the terminal window with too much information.
+                        <br>
+                        <img src="../../images/whatis.png" alt="whatis" class="img-thumbnail">
+                        <br>
+                    <span class="text-muted">Usage : <strong>whatis [command]</strong></span></p>
+                </div>
+                <div id="which">
+                    <h2><abbr title="which">which</abbr></h2>
+                    <p>Which is used to find the location of the command that you pass it.
+                        <br>
+                        <img src="../../images/which.png" alt="which" class="img-thumbnail">
+                    <br>
+                    <span class="text-muted">Usage: <strong>which [command]</strong></span></p>
+                </div>
+                <div id="reset">
+                    <h2><abbr title="reset">reset</abbr></h2>
+                    <p>Last but not the least, <strong>reset</strong>
+                    <br>
+                    If you have too much on your terminal window and want to get rid of it, type <strong>reset</strong></p>
+                    <p>This can be achieved with pressing <strong>CTRL</strong>+<strong>L</strong> simultaneously.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

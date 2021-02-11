@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       </head>
+    <body>
+        <div class="container">
+            <form action="/infosecblog/<%= blog._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="title">Meta[Same]</label>
+                    <input type="text" class="form-control"  name="title" id="title"  value="<%= blog.title%>" required=true>
+                </div>
+                <div class="form-group">
+                    <label for="meta_des">Meta Description</label>
+                    <input type="text" class="form-control" id="meta_des" name="meta_des" value="<%= blog.meta_des %>" required=true>
+                </div>
+                <div class="form-group">
+                    <label for="meta_keywords">Meta Keywords</label>
+                        <input type="text" class="form-control" name="meta_keywords" id=" meta_keywords" value="<%= blog.meta_keywords%>" required=true>
+                </div>
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<%= blog.name%>" required=true>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image Link</label>
+                    <input type="text" class="form-control" id="image" name="image" value="<%= blog.image%>" required=true>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" value="<%=blog.description %>" name="description" required=true>
+                </div>
+                <div class="form-group">
+                    <label for="body">Body</label>
+                    <textarea class="form-control" id="body" rows="5" name="body" value="<%= blog.body %>"required=true></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

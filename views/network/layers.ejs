@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7 Layers</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header class="container">
+            <h1>7 Layers that make the OSI Model</h1>
+        </header>
+        <div class="container" id="7-layers">
+            <p>Lets discuss the 7 layers and their function in the overall communication.</p>
+            <ol>
+                <li><strong>The Application Layer</strong></li>
+                <p>This is the topmost layer with which the user communicates directly.<br>Though its called Application layer, but it is important to note that <strong>applications aren't a part of this layer</strong>.
+                It's main task it to provide an iterface between the Applications and the other bottom layers.The Application layer comes into
+                play only when it’s apparent that access to the network will be needed soon.The Layer determines the availability of resources that shall be necessary for a particluar type of communication or service to exist.This is important as computers often need more resources than that can be provided by your computer.If the need be,they also unite communicating components from more than
+                one network application.
+                <br>Some of the protocols used in this layer are : <strong>http,https,ftp,tftp,sftp,ssh,telnet,pop3,smtp,RDP,etc.</strong></p>
+               
+                <li><strong>The Presentation Layer</strong></li>
+                <p>This is a layer just below Application Layer.It presents the data to the application layer and is also responsible for data tanslation, encryption, decryption, compression,and code fromatting. <br>
+                A successful data-transfer technique is to adapt the data into a standard format before
+                transmission. Computers are configured to receive this generically formatted data and then
+                convert it back into its native format for reading.</p>
+                <p>Data is translated to a format so that is can be sent easily over a medium followed by encrpytion(if supported).Encryption ensures the confidentiality of the data. Data is also compressed before being sent,so that it occupies less bandwidth and can se sent easiily.
+                <br> The Presentation Layer,at the receiver's side decompresses, decrypts and translates it(to a format understood by the machine) before forwarding it to the Application Layer.  </p>
+               
+                <li><strong>The Session Layer</strong></li>
+                <p>This layer is responsible setting up,managing and terminating the sessions between Presentation Layer entities. 
+                <br>Suppose you have logged in into your bank's webpage.Now if you open instance of the same bank's website in another tab on your browser, you aren't prompted again for a login.<en>Ever Wondered why?</en> This is the work of the session layer. It sets up a session between you and your bank and terminates it after you logout. 
+                <br>coordinates communication between systems and serves to organize their com-
+                munication by offering three different modes: simplex , half duplex , and full duplex.</p>
+                
+                <li><strong>The Transport Layer</strong></li>
+                <p>The data that you want to send to another host isn't sent all at once. The data is broken down into chunks called <strong>segments</strong>. This is the work of the Transport Layer.
+                <br>Further this layer is also responsible for setting up and tearing down virtual connections.
+                <br>A <u style="color: limegreen">Virtual Connection </u> is a connection that is set up between your computer and the host machine that you want to communicate with.</p>
+                <p>There are 2 protocols associated with this layer that helps in data delivery.They are :-</p> 
+                <ul>
+                    <li>TCP : Tranmission Control Protocol</li>
+                    <li>UDP : User Datagram Protocol</li>
+                </ul> 
+                <p>TCP is said to be a reliable protocol as the connections set by it(between 2 hosts) are reliable and hence the communication is called <u style="color:green;">Connection-Oriented</u>.So the next time you are surfing the web,shopping,banking you are using TCP.</p>  
+                <p>UDP on the other hand doesn't set up a reliable connection. It is concerned mainly with the speed with which data segments are delivered rather than reliablity. So the next time if you are gaming online,watching movies or streaming audion online then you are using UDP.</p>
+                <p>Transport Layer is concerned with other functions as well.</p>
+                <ul>
+                    <li style="color: orangered;"><strong>Flow Control</strong></li>
+                    <p>If there are too many data segments being received than its <abbr title="memory">buffer</abbr> can handle, then once the buffer fills up, it tends to ignore or drop the segments being sent by the sender.
+                    <br>The solution to this problem is <em>Flow Control</em>. If the receiver machine isn't ready to accept more segments then it can send a <strong>Not Ready</strong> signal to the sender to stop sending more data segments.Once it is ready to receive, it can send a <strong>Ready</strong> signal.</p>
+                    <li style="color: orangered;"><strong>Acknowledgements</strong></li>
+                <p>As mentioned before that if reliable connection is needed, then TCP is used. TCP uses a mechanism called <em>Acknowledgements</em>. <br>
+                After a fixed number of segments are sent, the sender waits for an acknowlegment from the receiver that it has reveived the segments and the sender can resume the sending. This is what makes TCP reliable but time consuming(especially if the network is too busy).
+                <br>If after a fixed interval (called <strong>Timout</strong>) the sender doen't receive an acknowlegment it sends the data segments again.</p>
+                </ul>
+                <li><strong>The Network Layer</strong></li>
+                <p>This layer is concerned with routing of packets.This layer ensures that the data packets reach the correct destination.</p>
+                <p><br><span style="color:orangered;">Now what are packets?</span> <br>
+                    Well,when the data segments are sent by the Transport Layer, the Netowrk Layer adds the IP address of the sender and the receiver. The segment along with the source and the destinaion's IP address makes up a packet.</p>
+                <p><span style="color:blue;">There are 2 types of packets involved.</span></p>
+                <ul>
+                    <li style="color: orangered;">Data Packets</li>
+                    <p>This contains the actual user data and protocols like the IPv4 an IPv6 are used to transfer these packets to the destination.</p>
+                    <li style="color: orangered;">Route Update Packets</li>
+                    <p>To ensure that the data packets reach the correct destination, there are routing tables in the <abbr title="These are the devices that operate at the Network Layer">routers</abbr>.These route update packets ensure that the routing table is upto date and has the necessary information to route your data packets.
+                    <br><span style="color: red;">What if the destination that you want to send to doesn't exist in the routing table?</span>
+                <br>Well in that case, the packet is dropped.</p>
+                </ul>
+                <li><strong>The Data Link Layer</strong></li>
+                <p><abbr title="Networking Devices">Switches</abbr> operate at this layer.It ensures that the data frame reaches its destinaion host in a LAN.This layer provides error handling,flow control and converts data into bits (0's and 1's).</p>
+                <p><span style="color: red;">What is a data frame?</span>
+                    <br>The data link layer adds a customized header containing the destination and source hardware address(MAC Address),to the packet,to identify the host in a LAN. This entire  
+                <br>Suppose the packet has reached the destination network. The IP address works at the Network layer.So to reach the actual host, MAC addresses are taken into consideration.</p>
+                <li><strong>The Physical Layer</strong></li>
+                <p>This is the last layer and is the closest to the actual physical medium that will help in the communication. This layer <strong>sends and receives bits</strong>.</p>
+                <p>The Physical layer communicates
+                    directly with the various types of actual communication media. Different kinds of media
+                    represent these bit values in different ways. Some use audio tones, and others employ state
+                    transitions —changes in voltage from high to low and low to high.</p>
+            </ol>   
+        </div> 
+    </body>
+</html>

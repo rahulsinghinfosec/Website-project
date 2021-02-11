@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OSI Model</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       <style>
+            .row 
+            {
+                border: 1px solid black;
+            }
+            .row div
+            {
+                padding-top:4px;
+                padding-bottom:4px;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../../partials/header.ejs") %>
+        <header class="container">
+            <h1>OSI Model</h1>
+        </header>
+        <div class="container" id="osi-model">
+            <h3>What is OSI Model?</h3>
+            <p>Before the 1970s, people had to either buy all the components from either IBM or DECnet. Buying a netoworking component from one vendor and another from the other lead to communication issues are cross vendor communication wasn't possbile. </p>
+            <p>Enter <em>Open Systems Interconnection(OSI) reference model</em> by Intenaltional Organization for Standardization to break throght this barrier. </p>
+            <p><strong>The goal of OSI model was to help vendors create interoperable network devices and software in the form of standards or protocols to facilitate internetwork communication.</strong>
+            <br>As a consequence of this step, new players could enter the market and now we could finally afford all these networking equipment that was really expensive and was offered only by a few players at their own terms and conditions.</p> 
+            
+            <h3>What is up with the layers anyway?</h3>
+            <p>There are lots of processes that should occur for a successful communication to occur.OSI model addresses these processes and based on a few characteristics divides these processes and keeps them into logical groups called <strong>Layers</strong>.</p>
+            <p>Now when I say that OSI follows a <strong>Layered  Architecture</strong>,it basically mean that the communication processes have been divided into layers for easy troubleshooting and understading.</p>
+        </div>
+        <div class="container" id="layers-overview">
+            <h3>Layers: Overview</h3>
+            <p>Let's go through the names of these layers and what they are actually concerned with in short but precise manner. <br>
+            There are 7 layers which make up the OSI Reference model. The names and the processes concerned with them are mentioned.</p>
+            <div class="row">
+                <div class="col-6 col-md-4" style="background-color: lightpink;">Application Layer</div>
+                <div class="col-6 col-md-8">Files,database,application services,web Services,SSH,Telnet</div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-4" style="background-color: lightpink;">Presentation Layer</div>
+                <div class="col-6 col-md-8">Data Translation,Encryption/Decompression,Compression/Decompression</div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-4" style="background-color: lightpink;">Session Layer</div>
+                <div class="col-6 col-md-8">Initiation,Maintainence,Termination of Sessions </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6 col-md-4" style="background-color: limegreen;">Transport Layer</div>
+                <div class="col-6 col-md-8">Initiation of end-to-end Connection</div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-4" style="background-color:limegreen">Network Layer</div>
+                <div class="col-6 col-md-8">Routing of Packets</div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6 col-md-4" style="background-color: mediumturquoise;">Data Link Layer</div>
+                <div class="col-6 col-md-8">Flow Control,Error Detection,Framing</div>
+            </div>
+            <div class="row" style="margin-bottom:10px;">
+                <div class="col-6 col-md-4" style="background-color: mediumturquoise;">Physical Layer</div>
+                <div class="col-6 col-md-8">Physical Topology,Transmission of Bits</div>
+            </div>
+        </div>
+        
+    </body>
+</html>

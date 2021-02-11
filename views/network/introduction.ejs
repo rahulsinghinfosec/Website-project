@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introduction to Computer Networks</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../js/scripts.js">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+       </head>
+    <body>
+        <%- include("../../partials/header.ejs") %>
+        <header class="container">
+            <h1>Introduction to Computer Networks</h1>
+        </header>
+        <div class="container">
+            <h3>What is a Computer Network?</h3>
+            <p>A computer network is a set of computers that are connected together for the purpose of communication (over a common set of protocols) and sharing of network resources(eg Printer or other office machines,etc.)</p>
+        </div>
+        <div class="container">
+            <h3>Types of Networks</h3>
+            <p>Depending upon the purpose,organization you might come across various types of networks.</p>
+            <details>
+                <summary>Local Area Network (LAN)</summary>
+                <p>A local area network connects computers within a particular (generally small/limited) area. This could be your home, office,etc.
+                    <br>
+                    In case if it spans a larger area,like an organization or enterprise network, it is generally divided into workgroups(for optimum performace).
+                    <br>
+                    LANs were developed in the 1960s for use in research centers,universities,and colleges. It was later available for commercial use after the development of Ethernet technology.
+                    Computers communicate in LANs using <abbr title="Media Access Layer">MAC</abbr> addresses. 
+                </p>
+            </details>
+            <details>
+                <summary>Campus Area Network (CAN)</summary>
+                <p>CAN is a LAN, or set of connected LANs that is used by large organizations like goverment agencies,corporate sectors, and even industries.
+                    <br>
+                    It is clear from the description that the size of a CAN is larger than the LAN.
+                </p> 
+            </details>
+            <details>
+                <summary>Wide Area Network (WAN)</summary>
+                <p>People also interchange WAN for Internet these days. It covers a larger geographical area. They are slower than LANs as <abbr title="Use of IP address to reach the correct destination">routing </abbr>is involved in this Network.
+                <br>
+                Computers or devices communicate in a WAN using <abbr title="Internet Protocol">IP addresses.</abbr>
+            </p>
+            </details>
+            <details>
+                <summary>Metropolitian Area Network (MAN)</summary>
+                <p>A MAN spans a larger geographical location than a LAN. It generally spans across regions. You can think of its size as big as a Metropolitian city.</p>
+            </details>
+            <details>
+                <summary>Home Area Network (HAN)</summary>
+                <p>As the name describes, it is used in home networks and spans the home of the user.The devices might include computers, tablets, personal servers, cameras, smart devices,etc. The devices can communicate with each other using MAC addresses.
+                </p>
+            </details>
+            <p class="text-muted">NOTE: You might come across various other networks like <abbr title="PANs">Personal Area Networks</abbr>, <abbr title="SANs">Storage Area Networks</abbr>,Global Area Network,etc. but we shall be confining ourselevs to LANs and WANs from the security point of view.</p>
+        </div>
+        <div class="container">
+            <h3>Internet,Intranets,Extranets</h3>
+            <p><strong>Internet </strong> <br>It refers to the collection of hosts (servers,computers,mobile phones,etc.) around the globe that can communicate with each other using TCP/IP.
+            <br>
+            <span class="text-muted">TCP/IP is a set of layers, which comprises various Protocols which help hosts to communicate with each other.</span></p>
+            <p><strong><abbr title="Lower case 'i'">internet</abbr></strong> <br>It refers to muliple networks connected together using common  protocol suite.</p>
+            <p><strong>Intranet </strong> <br> It is used to describe Private Area Networks,usually present in business or enterprise environments. </p>
+            <p><strong>Extranet</strong> <br>In many cases it is possible that the resource available for use (in a business/enterpise,etc.) is availble at a different location and inovles the use of a VPN to access it remotely. Such types of networks are called Extranets. </p>
+        </div>
+        <div class="container">
+            <h3>Network Architecture</h3>
+            <p>Network Architecture refers to the design of the computer network.It includes the framework deployed,physical components,the protocols being used, and the how various tasks are allocated between these computers.</p>
+            <p>There are 2 types of Network Architectures that you'll come across.</p>
+            <ul>
+                <li>Peer-to-Peer Network Architecture</li>
+                <li>Client-Server Network Architecture</li>
+            </ul>
+            <div id="peer-to-peer">
+                <p><strong><u>Peer-to-Peer Network Architecture</u></strong></p>
+                <p>"Peer",here stands for computers that are directly connected to each other to access each other's resources like files and folders.<br>You can form your own P2P Network by installing softwares like, Limewire and BearShare.The computers in the P2P network can give access to certain files and folders (<u>as the administrator of the computer deems fit</u>) to other computers in the P2P Network.</p>
+                <p style="line-height: 0px;">Though the concept sounds fancy, there are some serious cons to these types of Architectures.</p>
+                <ul>
+                    <li>Users have to remember that which resource(eg file/folder) can be found on which computer.</li>
+                    <li>Users need to remember all the usernames and passwords to access resources in different computers.</li>
+                    <li>Ther is no single authority to provide a security policy.</li>
+                    <li>Each computer has to keep a locak backup of its files.</li>
+                    <li>Isn't scalable.</li>
+                </ul>
+            </div>
+            <div id="client-server">
+                <p style="line-height: 0px;"><strong><u>Client-Server Network Architecture</u></strong></p>
+                <p>Unlike the P2P model where you had to keep track of different files stored in different computers, in a client-server model there is a (central) Server that handles all the requests from different users and allocates the resources to it.
+                </p>
+                <p style="line-height: 0px;">Lets look at the pros of this Network Architecture.</p>
+                <ul>
+                    <li>Since there is one central Server, you just have to remember the credentials for that server.</li>
+                    <li>More scalable than P2P Network Architecture.</li>
+                    <li>Capable of maintaining backup of its files, in case of a fault.</li>
+                </ul>
+                <p class="text-muted">Networks these days are a blend of P2P and Client-Server Architecture.</p>
+            </div>
+            <a href="/network/osi-model" class="btn btn-primary">OSI Model</a>   
+        </div>
+
+    </body>
+</html>
